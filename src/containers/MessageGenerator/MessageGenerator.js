@@ -18,25 +18,32 @@ const MessageGenerator = () => {
 		},
 		formData: {
 			date: {
-				type: "date"
+				type: "date",
+				required: true
 			},
 			class: {
-				type: "input"
+				type: "input",
+				required: true
 			},
 			rollNumber: {
 				type: "number",
+				required: true
 			},
 			numberOfPresent: {
-				type: "number"
+				type: "number",
+				required: true
 			},
 			numberOfAbsent: {
-				type: "number"
+				type: "number",
+				required: true
 			},
 			topicCovered: {
-				type: "text-area"
+				type: "text-area",
+				required: true
 			},
 			assignment: {
-				type: "text-area"
+				type: "text-area",
+				required: true
 			}
 		}
 	});
