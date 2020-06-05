@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grommet, Main, Heading, Button } from 'grommet';
-
+import { Grommet, Main, Heading } from 'grommet';
+import MessageGenerator from './containers/MessageGenerator/MessageGenerator';
 function App() {
 	const theme = {
 		global: {
@@ -17,11 +17,7 @@ function App() {
         <Heading alignSelf="center" size="small" color="brand">
           Daywise Report Message Generator
         </Heading>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, velit
-				consequuntur dolorem libero nobis placeat, in unde reprehenderit et illo
-				voluptatibus, dolores ex qui incidunt tenetur a. Eaque, molestias
-				distinctio!
-        <Button primary label="Generate" fill={false} />
+				<MessageGenerator />
 			</Main>
 		</Grommet>
 	);
