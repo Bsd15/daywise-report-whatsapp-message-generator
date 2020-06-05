@@ -1,13 +1,29 @@
 import React from 'react';
+import { Grommet, Main, Heading, Button } from 'grommet';
 
 function App() {
+	const theme = {
+		global: {
+			font: {
+				family: 'Roboto',
+				size: '18px',
+				height: '20px',
+			},
+		},
+	};
 	return (
-		<div className="App">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
-			suscipit ipsam. Quod possimus ipsa, repellendus omnis reiciendis
-			praesentium accusantium? Perspiciatis dolorum omnis obcaecati recusandae
-			laborum, culpa voluptatum quod libero dolore.
-		</div>
+		<Grommet theme={theme}>
+			<Main pad="large">
+        <Heading alignSelf="center" size="small" color="brand">
+          Daywise Report Message Generator
+        </Heading>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, velit
+				consequuntur dolorem libero nobis placeat, in unde reprehenderit et illo
+				voluptatibus, dolores ex qui incidunt tenetur a. Eaque, molestias
+				distinctio!
+        <Button primary label="Generate" fill={false} />
+			</Main>
+		</Grommet>
 	);
 }
 
