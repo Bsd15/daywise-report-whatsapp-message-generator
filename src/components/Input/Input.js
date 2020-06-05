@@ -7,28 +7,28 @@ const Input = (props) => {
 	switch (props.type) {
 		case 'number':
 			input = (
-				<FormField label={props.label} name={props.name} pad>
+				<FormField label={props.label} name={props.name} pad required={props.required}>
 					<TextInput name={props.name} type="number" />
 				</FormField>
 			);
 			break;
 		case 'text-area':
 			input = (
-				<FormField label={props.label} name={props.name}>
+				<FormField label={props.label} name={props.name} required={props.required}>
 					<TextArea name={props.name} />
 				</FormField>
 			);
 			break;
 		case 'input':
 			input = (
-				<FormField label={props.label} name={props.name}>
+				<FormField label={props.label} name={props.name} required={props.required}>
 					<TextInput name={props.name} />
 				</FormField>
 			);
 			break;
 		case 'date':
 			input = (
-				<FormField label={props.label} name={props.name}>
+				<FormField label={props.label} name={props.name} required={props.required}>
 					<TextInput name={props.name} type="date"/>
 				</FormField>
 			);
@@ -45,7 +45,13 @@ Input.propTypes = {
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	min: PropTypes.number,
-	max: PropTypes.number,
+    max: PropTypes.number,
+    required: PropTypes.bool
 };
+
+Input.defaultProps = {
+    min: 1,
+    required: false
+}
 
 export default Input;
