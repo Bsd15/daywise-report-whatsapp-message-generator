@@ -24,6 +24,7 @@ const MessageGeneratorForm = (props) => {
 						name={key}
 						label={key.replace(/^\w/, (c) => c.toUpperCase())}
 						type={formData[key].type}
+						required={formData[key].required}
 					/>
 				))}
 				<Box direction="row" justify="between" margin={{ top: 'medium' }}>
@@ -40,7 +41,8 @@ MessageGeneratorForm.propTypes = {
 	messageData: PropTypes.shape({
 		values: PropTypes.object,
 		formData: PropTypes.shape({
-			type: PropTypes.string,
+			type: PropTypes.string.isRequired,
+			required: PropTypes.bool
 		}),
 	}),
 };
