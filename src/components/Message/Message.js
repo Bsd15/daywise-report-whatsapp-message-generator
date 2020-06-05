@@ -1,22 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import format from 'date-fns/format';
 
-const Message = () => {
+const Message = (props) => {
+	const messageDate = new Date(props.messageData.date);
 	return (
 		<div>
-			<p>Friday, 05-06-2020</p>
 			<p>
-				<b>Daywise report</b> of online class for VIII
+				{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
 			</p>
-			<p>No. on roll: 5</p>
-			<p>No. on present: 5</p>
-			<p>No. on absent: NIL</p>
-			<p>Topic covered: Definition of Happiness</p>
 			<p>
-				Things assignment: Listing People/Things they like/Dislike with reasons
+				<b>Daywise report</b> of online class for {props.messageData.class}
 			</p>
-			<p>Remarks: NIL</p>
+			<p>No. on roll: {props.messageData.rollNumber}</p>
+			<p>No. on present: {props.messageData.numberOfPresent}</p>
+			<p>No. on absent: {props.messageData.numberOfAbsent}</p>
+			<p>Topic covered: {props.messageData.topicCovered}</p>
+			<p>
+				Things assignment: {props.messageData.assignment}
+			</p>
+			<p>Remarks: {props.messageData.remarks}</p>
 		</div>
 	);
+};
+
+Message.propTypes = {
+	messageData: PropTypes.shape({
+		date: PropTypes.string.isRequired,
+		class: PropTypes.number.isRequired,
+		rollNumber: PropTypes.number.isRequired,
+		numberOfPresent: PropTypes.number.isRequired,
+		numberOfAbsent: PropTypes.number.isRequired,
+		topicCovered: PropTypes.string.isRequired,
+		assignment: PropTypes.string.isRequired,
+		remarks: PropTypes.string.isRequired
+	}),
 };
 
 export default Message;
