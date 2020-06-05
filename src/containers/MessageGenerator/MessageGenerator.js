@@ -11,7 +11,7 @@ const MessageGenerator = () => {
 		values: {
 			date: format(new Date(), 'yyyy-MM-dd'),
 			class: '',
-			rollNumber: 0,
+			totalStrength: 0,
 			numberOfPresent: 0,
 			numberOfAbsent: 0,
 			topicCovered: '',
@@ -27,7 +27,7 @@ const MessageGenerator = () => {
 				type: 'number',
 				required: true,
 			},
-			rollNumber: {
+			totalStrength: {
 				type: 'number',
 				required: true,
 			},
