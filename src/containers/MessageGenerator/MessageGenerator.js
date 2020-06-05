@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import { Box } from 'grommet';
+import format from 'date-fns/format'
 import Message from '../../components/Message/Message';
 import MessageForm from '../../components/MessageGeneratorForm/MessageGeneratorForm';
 
 const MessageGenerator = () => {
 	const [messageData, setMessageData] = useState({
 		values: {
-			date: '',
+			date: format(new Date(), 'yyyy-MM-dd'),
 			class: '',
 			rollNumber: 0,
 			numberOfPresent: 0,
