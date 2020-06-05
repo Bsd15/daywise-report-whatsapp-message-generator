@@ -12,11 +12,10 @@ const MessageGeneratorForm = (props) => {
 			<Form
 				value={value}
 				onChange={(nextValue) => {
-					console.log(nextValue);
 					setValue(nextValue);
 				}}
 				onReset={() => setValue(defaultMessageData)}
-				onSubmit={(event) => console.log('Submit', event.value, event.touched)}
+				onSubmit={() => props.onSubmitHandler(value)}
 			>
 				{Object.keys(formData).map((key, i) => (
 					<Input
@@ -39,8 +38,9 @@ const MessageGeneratorForm = (props) => {
 MessageGeneratorForm.propTypes = {
 	messageData: PropTypes.shape({
 		values: PropTypes.object,
-		formData: PropTypes.object.isRequired
+		formData: PropTypes.object.isRequired,
 	}),
+	onSubmitHandler: PropTypes.func,
 };
 
 export default MessageGeneratorForm;
