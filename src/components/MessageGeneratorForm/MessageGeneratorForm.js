@@ -28,7 +28,6 @@ const MessageGeneratorForm = (props) => {
 					/>
 				))}
 				<Box direction="row" justify="between" margin={{ top: 'medium' }}>
-					<Button label="Cancel" />
 					<Button type="reset" label="Reset" />
 					<Button type="submit" label="Update" primary />
 				</Box>
@@ -40,10 +39,7 @@ const MessageGeneratorForm = (props) => {
 MessageGeneratorForm.propTypes = {
 	messageData: PropTypes.shape({
 		values: PropTypes.object,
-		formData: PropTypes.shape({
-			type: PropTypes.string.isRequired,
-			required: PropTypes.bool
-		}),
+		formData: PropTypes.object.isRequired
 	}),
 };
 
