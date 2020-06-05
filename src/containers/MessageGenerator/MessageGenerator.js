@@ -49,7 +49,6 @@ const MessageGenerator = () => {
 			},
 			remarks: {
 				type: 'text-area',
-				required: true,
 			},
 		},
 	});
