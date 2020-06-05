@@ -13,13 +13,13 @@ const Message = (props) => {
 				<b>Daywise report</b> of online class for {props.messageData.class}
 			</p>
 			<p>No. on roll: {props.messageData.rollNumber}</p>
-			<p>No. on present: {props.messageData.numberOfPresent}</p>
-			<p>No. on absent: {props.messageData.numberOfAbsent}</p>
+			<p>No. present: {props.messageData.numberOfPresent}</p>
+			<p>No. absent: {props.messageData.numberOfAbsent}</p>
 			<p>Topic covered: {props.messageData.topicCovered}</p>
+			<p>Home assignment: {props.messageData.assignment}</p>
 			<p>
-				Things assignment: {props.messageData.assignment}
+				Remarks: {props.messageData.remarks ? props.messageData.remarks : 'NIL'}
 			</p>
-			<p>Remarks: {props.messageData.remarks}</p>
 		</div>
 	);
 };
@@ -33,7 +33,7 @@ Message.propTypes = {
 		numberOfAbsent: PropTypes.number.isRequired,
 		topicCovered: PropTypes.string.isRequired,
 		assignment: PropTypes.string.isRequired,
-		remarks: PropTypes.string.isRequired
+		remarks: PropTypes.string.isRequired,
 	}),
 };
 
