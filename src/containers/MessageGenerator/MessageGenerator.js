@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { Box } from 'grommet';
 import format from 'date-fns/format';
 import Message from '../../components/Message/Message';
@@ -16,6 +16,7 @@ const MessageGenerator = () => {
 			numberOfAbsent: 0,
 			topicCovered: '',
 			assignment: '',
+			remarks: '',
 		},
 		formData: {
 			date: {
@@ -23,7 +24,7 @@ const MessageGenerator = () => {
 				required: true,
 			},
 			class: {
-				type: 'input',
+				type: 'number',
 				required: true,
 			},
 			rollNumber: {
@@ -46,24 +47,37 @@ const MessageGenerator = () => {
 				type: 'text-area',
 				required: true,
 			},
+			remarks: {
+				type: 'text-area',
+				required: true,
+			},
 		},
 	});
+	const [isMessageDataValid, setIsMessageDataValid] = useState(false);
+	const history = useHistory();
 
 	const generateMessage = (data) => {
 		setMessageData({
 			...messageData,
 			values: data,
 		});
+		setIsMessageDataValid(true);
+		history.push('/message');
 	};
 
 	return (
 		<Box alignSelf="center" background="light-1" pad="small">
 			<Switch>
-				<Route path="/message">
-					<Message />
-				</Route>
+				{isMessageDataValid ? (
+					<Route path="/message">
+						<Message messageData={messageData.values} />
+					</Route>
+				) : null}
 				<Route exact path="/">
-					<MessageForm messageData={messageData} onSubmitHandler={generateMessage} />
+					<MessageForm
+						messageData={messageData}
+						onSubmitHandler={generateMessage}
+					/>
 				</Route>
 			</Switch>
 		</Box>
