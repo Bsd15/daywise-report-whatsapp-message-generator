@@ -8,7 +8,7 @@ import MessageForm from '../../components/MessageGeneratorForm/MessageGeneratorF
 const MessageGenerator = () => {
 	const [messageData, setMessageData] = useState({
 		values: {
-			date: new Date(),
+			date: '',
 			class: '',
 			rollNumber: 0,
 			numberOfPresent: 0,
