@@ -53,6 +53,7 @@ const MessageGenerator = () => {
 		},
 	});
 	const [isMessageDataValid, setIsMessageDataValid] = useState(false);
+	const [isTextCopied, setIsTextCopied] = useState(false);
 	const history = useHistory();
 
 	const generateMessage = (data) => {
@@ -64,12 +65,15 @@ const MessageGenerator = () => {
 		history.push('/message');
 	};
 
+	const isTextCopiedHandler = () => setIsTextCopied(true);
+
 	return (
 		<Box alignSelf="center" background="light-1" pad="small">
+			{isTextCopied && <p>Text Copied Successfully</p>}
 			<Switch>
 				{isMessageDataValid ? (
 					<Route path="/message">
-						<Message messageData={messageData.values} />
+						<Message messageData={messageData.values} onCopy={isTextCopiedHandler} />
 					</Route>
 				) : null}
 				<Route exact path="/">

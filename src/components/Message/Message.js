@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import format from 'date-fns/format';
 import { Button, Box } from 'grommet';
 
 const Message = (props) => {
 	const messageDate = new Date(props.messageData.date);
 	const ref = useRef();
+	const history = useHistory();
 	const copyMessageToClipboard = () => {
 		// Ref https://stackoverflow.com/a/48020189
 		var range = document.createRange();
@@ -14,6 +16,8 @@ const Message = (props) => {
 		window.getSelection().addRange(range); // to select text
 		document.execCommand('copy');
 		window.getSelection().removeAllRanges(); // to deselect
+		props.onCopy();
+		history.push('/');
 	};
 	return (
 		<Box>
@@ -55,6 +59,7 @@ Message.propTypes = {
 		assignment: PropTypes.string.isRequired,
 		remarks: PropTypes.string.isRequired,
 	}),
+	onCopy: PropTypes.func,
 };
 
 export default Message;
