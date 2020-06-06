@@ -12,7 +12,7 @@ const MessageGenerator = () => {
 			date: format(new Date(), 'yyyy-MM-dd'),
 			startTime: '',
 			endTime: '',
-			subject: 'Social Science',
+			subject: 'Social',
 			class: 1,
 			totalStrength: 0,
 			numberOfPresent: 0,
