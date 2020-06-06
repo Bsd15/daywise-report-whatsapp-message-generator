@@ -6,7 +6,6 @@ import { Button, Box } from 'grommet';
 
 const Message = (props) => {
 	const messageDate = new Date(props.messageData.date);
-	const ref = useRef();
 	const history = useHistory();
 	const copyMessageToClipboard = () => {
 		// Ref https://stackoverflow.com/a/48020189
@@ -21,7 +20,7 @@ const Message = (props) => {
 	};
 	return (
 		<Box>
-			<div ref={ref} id="message">
+			<div id="message">
 				<p>
 					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
 				</p>
@@ -38,7 +37,7 @@ const Message = (props) => {
 				<p>Ended at: {props.messageData.endTime}</p>
 				<p>Homework report: {props.messageData.assignmentReport}</p>
 				<p>
-					Remarks:{' '}
+					Remarks:
 					{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
 				</p>
 			</div>
