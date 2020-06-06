@@ -7,20 +7,23 @@ import Message from '../../components/Message/Message';
 import MessageForm from '../../components/MessageGeneratorForm/MessageGeneratorForm';
 
 const MessageGenerator = () => {
+	const defaultMessageValues = {
+		date: format(new Date(), 'yyyy-MM-dd'),
+		startTime: '',
+		endTime: '',
+		subject: 'Social',
+		class: 1,
+		totalStrength: 0,
+		numberOfPresent: 0,
+		numberOfAbsent: 0,
+		topicCovered: '',
+		assignment: '',
+		assignmentReport: '',
+		remarks: '',
+	};
 	const [messageData, setMessageData] = useState({
 		values: {
-			date: format(new Date(), 'yyyy-MM-dd'),
-			startTime: '',
-			endTime: '',
-			subject: 'Social',
-			class: 1,
-			totalStrength: 0,
-			numberOfPresent: 0,
-			numberOfAbsent: 0,
-			topicCovered: '',
-			assignment: '',
-			assignmentReport: '',
-			remarks: '',
+			...defaultMessageValues,
 		},
 		formData: {
 			date: {
@@ -85,7 +88,13 @@ const MessageGenerator = () => {
 		history.push('/message');
 	};
 
-	const isTextCopiedHandler = () => setIsTextCopied(true);
+	const isTextCopiedHandler = () => {
+		setIsTextCopied(!isTextCopied);
+		setMessageData({
+			...messageData,
+			values: { ...defaultMessageValues },
+		});
+	};
 
 	return (
 		<Box alignSelf="center" background="light-1" pad="small">
