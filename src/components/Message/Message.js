@@ -7,18 +7,24 @@ const Message = (props) => {
 	const messageDate = new Date(props.messageData.date);
 	const ref = useRef();
 	const copyMessageToClipboard = () => {
-		console.log(ref.current.textContent());
+		// Ref https://stackoverflow.com/a/48020189
+		var range = document.createRange();
+		range.selectNode(document.getElementById('message'));
+		window.getSelection().removeAllRanges(); // clear current selection
+		window.getSelection().addRange(range); // to select text
+		document.execCommand('copy');
+		window.getSelection().removeAllRanges(); // to deselect
 	};
 	return (
 		<Box>
-			<div ref={ref}>
+			<div ref={ref} id="message">
 				<p>
 					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
 				</p>
 				<p>
 					<b>Daywise report</b> of online class for {props.messageData.class}
 				</p>
-				<p>No. on roll: {props.messageData.rollNumber}</p>
+				<p>No. on roll: {props.messageData.totalStrength}</p>
 				<p>No. present: {props.messageData.numberOfPresent}</p>
 				<p>No. absent: {props.messageData.numberOfAbsent}</p>
 				<p>Topic covered: {props.messageData.topicCovered}</p>
@@ -42,7 +48,7 @@ Message.propTypes = {
 	messageData: PropTypes.shape({
 		date: PropTypes.string.isRequired,
 		class: PropTypes.number.isRequired,
-		rollNumber: PropTypes.number.isRequired,
+		totalStrength: PropTypes.number.isRequired,
 		numberOfPresent: PropTypes.number.isRequired,
 		numberOfAbsent: PropTypes.number.isRequired,
 		topicCovered: PropTypes.string.isRequired,
