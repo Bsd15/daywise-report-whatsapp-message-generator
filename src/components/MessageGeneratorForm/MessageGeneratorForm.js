@@ -28,7 +28,7 @@ const MessageGeneratorForm = (props) => {
 				))}
 				<Box direction="row" justify="between" margin={{ top: 'medium' }}>
 					<Button type="reset" label="Reset" />
-					<Button type="submit" label="Update" primary />
+					<Button type="submit" label="Create Message" primary />
 				</Box>
 			</Form>
 		</div>
