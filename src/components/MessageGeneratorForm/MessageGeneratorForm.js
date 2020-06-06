@@ -4,7 +4,7 @@ import { Form, Box, Button } from 'grommet';
 import Input from '../Input/Input';
 
 const MessageGeneratorForm = (props) => {
-	const defaultMessageData = props.messageData.values;
+	const defaultMessageData = {...props.messageData.values};
 	const [value, setValue] = useState(defaultMessageData);
 	const formData = props.messageData.formData;
 	return (
