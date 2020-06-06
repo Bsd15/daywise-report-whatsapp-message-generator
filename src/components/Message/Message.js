@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 import { Button, Box } from 'grommet';
 
 const Message = (props) => {
@@ -18,6 +19,7 @@ const Message = (props) => {
 		props.onCopy();
 		history.push('/');
 	};
+
 	return (
 		<Box>
 			<div id="message">
@@ -33,8 +35,20 @@ const Message = (props) => {
 				<p>No. absent: {props.messageData.numberOfAbsent}</p>
 				<p>Topic covered: {props.messageData.topicCovered}</p>
 				<p>Home assignment: {props.messageData.assignment}</p>
-				<p>Begant at: {props.messageData.startTime}</p>
-				<p>Ended at: {props.messageData.endTime}</p>
+				<p>
+					Begant at:
+					{format(
+						parse(props.messageData.startTime, 'HH:mm', new Date()),
+						'h:mm aaaa'
+					)}
+				</p>
+				<p>
+					Ended at:
+					{format(
+						parse(props.messageData.endTime, 'HH:mm', new Date()),
+						'h:mm aaaa'
+					)}
+				</p>
 				<p>Homework report: {props.messageData.assignmentReport}</p>
 				<p>
 					Remarks:
