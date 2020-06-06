@@ -97,7 +97,7 @@ const MessageGenerator = () => {
 	};
 
 	return (
-		<Box alignSelf="center" background="light-1" pad="small">
+		<Box alignSelf="center" background="light-1" pad="small" width="large">
 			{isTextCopied && <p>Text Copied Successfully</p>}
 			<Switch>
 				{isMessageDataValid ? (
