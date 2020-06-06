@@ -10,7 +10,7 @@ const MessageGenerator = () => {
 	const [messageData, setMessageData] = useState({
 		values: {
 			date: format(new Date(), 'yyyy-MM-dd'),
-			class: '',
+			class: 1,
 			totalStrength: 0,
 			numberOfPresent: 0,
 			numberOfAbsent: 0,
