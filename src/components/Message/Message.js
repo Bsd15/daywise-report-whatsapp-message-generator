@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import { Button, Box } from 'grommet';
+import { Button, Box, Text } from 'grommet';
 
 const Message = (props) => {
 	const messageDate = new Date(props.messageData.date);
@@ -22,6 +22,39 @@ const Message = (props) => {
 
 	return (
 		<Box>
+			<Box flex>
+				<Text>
+					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
+				</Text>
+				<Text>
+					<b>Daywise report</b> of online class for {props.messageData.class}
+				</Text>
+				<Text>Subject: {props.messageData.subject}</Text>
+				<Text>No. on roll: {props.messageData.totalStrength}</Text>
+				<Text>No. present: {props.messageData.numberOfPresent}</Text>
+				<Text>No. absent: {props.messageData.numberOfAbsent}</Text>
+				<Text>Topic covered: {props.messageData.topicCovered}</Text>
+				<Text>Home assignment: {props.messageData.assignment}</Text>
+				<Text>
+					Begant at:
+					{format(
+						parse(props.messageData.startTime, 'HH:mm', new Date()),
+						'h:mm aaaa'
+					)}
+				</Text>
+				<Text>
+					Ended at:
+					{format(
+						parse(props.messageData.endTime, 'HH:mm', new Date()),
+						'h:mm aaaa'
+					)}
+				</Text>
+				<Text>Homework report: {props.messageData.assignmentReport}</Text>
+				<Text>
+					Remarks:
+					{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
+				</Text>
+			</Box>
 			<div id="message">
 				<p>
 					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
