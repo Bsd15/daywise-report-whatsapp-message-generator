@@ -23,16 +23,19 @@ const Message = (props) => {
 		<Box>
 			<div ref={ref} id="message">
 				<p>
-					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
+					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}{' '}
+					{props.messageData.startTime} - {props.messageData.endTime}
 				</p>
 				<p>
 					<b>Daywise report</b> of online class for {props.messageData.class}
 				</p>
+				<p>Subject: {props.messageData.subject}</p>
 				<p>No. on roll: {props.messageData.totalStrength}</p>
 				<p>No. present: {props.messageData.numberOfPresent}</p>
 				<p>No. absent: {props.messageData.numberOfAbsent}</p>
 				<p>Topic covered: {props.messageData.topicCovered}</p>
 				<p>Home assignment: {props.messageData.assignment}</p>
+				<p>Homework report: {props.messageData.assignmentReport}</p>
 				<p>
 					Remarks:{' '}
 					{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
@@ -51,12 +54,16 @@ const Message = (props) => {
 Message.propTypes = {
 	messageData: PropTypes.shape({
 		date: PropTypes.string.isRequired,
+		startTime: PropTypes.string.isRequired,
+		endTime: PropTypes.string.isRequired,
+		subject: PropTypes.string,
 		class: PropTypes.number.isRequired,
 		totalStrength: PropTypes.number.isRequired,
 		numberOfPresent: PropTypes.number.isRequired,
 		numberOfAbsent: PropTypes.number.isRequired,
 		topicCovered: PropTypes.string.isRequired,
 		assignment: PropTypes.string.isRequired,
+		assignmentReport: PropTypes.string.isRequired,
 		remarks: PropTypes.string.isRequired,
 	}),
 	onCopy: PropTypes.func,
