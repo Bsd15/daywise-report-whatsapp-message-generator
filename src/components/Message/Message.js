@@ -22,71 +22,43 @@ const Message = (props) => {
 
 	return (
 		<Box>
-			<Box flex>
-				<Text>
-					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
-				</Text>
-				<Text>
-					<b>Daywise report</b> of online class for {props.messageData.class}
-				</Text>
-				<Text>Subject: {props.messageData.subject}</Text>
-				<Text>No. on roll: {props.messageData.totalStrength}</Text>
-				<Text>No. present: {props.messageData.numberOfPresent}</Text>
-				<Text>No. absent: {props.messageData.numberOfAbsent}</Text>
-				<Text>Topic covered: {props.messageData.topicCovered}</Text>
-				<Text>Home assignment: {props.messageData.assignment}</Text>
-				<Text>
-					Begant at:
-					{format(
-						parse(props.messageData.startTime, 'HH:mm', new Date()),
-						'h:mm aaaa'
-					)}
-				</Text>
-				<Text>
-					Ended at:
-					{format(
-						parse(props.messageData.endTime, 'HH:mm', new Date()),
-						'h:mm aaaa'
-					)}
-				</Text>
-				<Text>Homework report: {props.messageData.assignmentReport}</Text>
-				<Text>
-					Remarks:
-					{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
-				</Text>
-			</Box>
 			<div id="message">
-				<p>
-					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
-				</p>
-				<p>
-					<b>Daywise report</b> of online class for {props.messageData.class}
-				</p>
-				<p>Subject: {props.messageData.subject}</p>
-				<p>No. on roll: {props.messageData.totalStrength}</p>
-				<p>No. present: {props.messageData.numberOfPresent}</p>
-				<p>No. absent: {props.messageData.numberOfAbsent}</p>
-				<p>Topic covered: {props.messageData.topicCovered}</p>
-				<p>Home assignment: {props.messageData.assignment}</p>
-				<p>
-					Begant at:
-					{format(
-						parse(props.messageData.startTime, 'HH:mm', new Date()),
-						'h:mm aaaa'
-					)}
-				</p>
-				<p>
-					Ended at:
-					{format(
-						parse(props.messageData.endTime, 'HH:mm', new Date()),
-						'h:mm aaaa'
-					)}
-				</p>
-				<p>Homework report: {props.messageData.assignmentReport}</p>
-				<p>
-					Remarks:
-					{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
-				</p>
+				<Box flex>
+					<Text>
+						{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}<br/>
+					</Text>
+					<Text>
+						<b>*Daywise report*</b> of online class for {props.messageData.class}<br/>
+					</Text>
+					<Text>Subject: {props.messageData.subject}<br/></Text>
+					<Text>No. on roll: {props.messageData.totalStrength}<br/></Text>
+					<Text>No. present: {props.messageData.numberOfPresent}<br/></Text>
+					<Text>No. absent: {props.messageData.numberOfAbsent}<br/></Text>
+					<Text>*Topic covered*: {props.messageData.topicCovered}<br/></Text>
+					<Text>*Home assignment*: {props.messageData.assignment}<br/></Text>
+					<Text>
+						Begant at:
+						{format(
+							parse(props.messageData.startTime, 'HH:mm', new Date()),
+							'h:mm aaaa'
+						)}
+						<br/>
+					</Text>
+					<Text>
+						Ended at:
+						{format(
+							parse(props.messageData.endTime, 'HH:mm', new Date()),
+							'h:mm aaaa'
+						)}
+						<br/>
+					</Text>
+					<Text>*Homework report*: {props.messageData.assignmentReport}<br/></Text>
+					<Text>
+						Remarks:
+						{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
+						<br/>
+					</Text>
+				</Box>
 			</div>
 			<Box>
 				<Button
