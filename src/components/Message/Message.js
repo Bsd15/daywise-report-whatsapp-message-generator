@@ -23,8 +23,7 @@ const Message = (props) => {
 		<Box>
 			<div ref={ref} id="message">
 				<p>
-					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}{' '}
-					{props.messageData.startTime} - {props.messageData.endTime}
+					{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
 				</p>
 				<p>
 					<b>Daywise report</b> of online class for {props.messageData.class}
@@ -35,6 +34,8 @@ const Message = (props) => {
 				<p>No. absent: {props.messageData.numberOfAbsent}</p>
 				<p>Topic covered: {props.messageData.topicCovered}</p>
 				<p>Home assignment: {props.messageData.assignment}</p>
+				<p>Begant at: {props.messageData.startTime}</p>
+				<p>Ended at: {props.messageData.endTime}</p>
 				<p>Homework report: {props.messageData.assignmentReport}</p>
 				<p>
 					Remarks:{' '}
