@@ -10,17 +10,33 @@ const MessageGenerator = () => {
 	const [messageData, setMessageData] = useState({
 		values: {
 			date: format(new Date(), 'yyyy-MM-dd'),
+			startTime: '',
+			endTime: '',
+			subject: 'Social Science',
 			class: 1,
 			totalStrength: 0,
 			numberOfPresent: 0,
 			numberOfAbsent: 0,
 			topicCovered: '',
 			assignment: '',
+			assignmentReport: '',
 			remarks: '',
 		},
 		formData: {
 			date: {
 				type: 'date',
+				required: true,
+			},
+			startTime: {
+				type: 'time',
+				required: true,
+			},
+			endTime: {
+				type: 'time',
+				required: true,
+			},
+			subject: {
+				type: 'input',
 				required: true,
 			},
 			class: {
@@ -44,6 +60,10 @@ const MessageGenerator = () => {
 				required: true,
 			},
 			assignment: {
+				type: 'text-area',
+				required: true,
+			},
+			assignmentReport: {
 				type: 'text-area',
 				required: true,
 			},
@@ -73,7 +93,10 @@ const MessageGenerator = () => {
 			<Switch>
 				{isMessageDataValid ? (
 					<Route path="/message">
-						<Message messageData={messageData.values} onCopy={isTextCopiedHandler} />
+						<Message
+							messageData={messageData.values}
+							onCopy={isTextCopiedHandler}
+						/>
 					</Route>
 				) : null}
 				<Route exact path="/">
