@@ -70,7 +70,7 @@ const Message = (props) => {
 					</Text>
 					<Text>
 						<b>*Daywise report*</b> of online class for{' '}
-						{romanize(props.messageData.class)} grade
+						<b>*{romanize(props.messageData.class)}*</b> grade
 						<br />
 					</Text>
 					<Text>
