@@ -30,14 +30,14 @@ const Message = (props) => {
 					<Text>
 						<b>*Daywise report*</b> of online class for {props.messageData.class}<br/>
 					</Text>
-					<Text>Subject: {props.messageData.subject}<br/></Text>
+					<Text><b>*Subject:*</b> {props.messageData.subject}<br/></Text>
 					<Text>No. on roll: {props.messageData.totalStrength}<br/></Text>
 					<Text>No. present: {props.messageData.numberOfPresent}<br/></Text>
 					<Text>No. absent: {props.messageData.numberOfAbsent}<br/></Text>
-					<Text>*Topic covered*: {props.messageData.topicCovered}<br/></Text>
-					<Text>*Home assignment*: {props.messageData.assignment}<br/></Text>
+					<Text><b>*Topic covered*:</b> {props.messageData.topicCovered}<br/></Text>
+					<Text><b>*Home assignment*:</b> {props.messageData.assignment}<br/></Text>
 					<Text>
-						Begant at:
+						Began at:
 						{format(
 							parse(props.messageData.startTime, 'HH:mm', new Date()),
 							'h:mm aaaa'
@@ -52,9 +52,9 @@ const Message = (props) => {
 						)}
 						<br/>
 					</Text>
-					<Text>*Homework report*: {props.messageData.assignmentReport}<br/></Text>
+					<Text><b>*Homework report*:</b> {props.messageData.assignmentReport}<br/></Text>
 					<Text>
-						Remarks:
+						<b>*Remarks*:</b>
 						{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
 						<br/>
 					</Text>
