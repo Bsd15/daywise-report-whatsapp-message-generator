@@ -19,30 +19,91 @@ const Message = (props) => {
 		props.onCopy();
 		history.push('/');
 	};
+	const romanize = (number) => {
+		if (isNaN(number)) return NaN;
+		var digits = String(+number).split(''),
+			key = [
+				'',
+				'C',
+				'CC',
+				'CCC',
+				'CD',
+				'D',
+				'DC',
+				'DCC',
+				'DCCC',
+				'CM',
+				'',
+				'X',
+				'XX',
+				'XXX',
+				'XL',
+				'L',
+				'LX',
+				'LXX',
+				'LXXX',
+				'XC',
+				'',
+				'I',
+				'II',
+				'III',
+				'IV',
+				'V',
+				'VI',
+				'VII',
+				'VIII',
+				'IX',
+			],
+			roman = '',
+			i = 3;
+		while (i--) roman = (key[+digits.pop() + i * 10] || '') + roman;
+		return Array(+digits.join('') + 1).join('M') + roman;
+	};
 
 	return (
 		<Box>
 			<div id="message">
 				<Box flex>
 					<Text>
-						{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}<br/>
+						{format(messageDate, 'EEEE')}, {format(messageDate, 'dd-MM-yyyy')}
+						<br />
 					</Text>
 					<Text>
-						<b>*Daywise report*</b> of online class for {props.messageData.class}<br/>
+						<b>*Daywise report*</b> of online class for{' '}
+						{romanize(props.messageData.class)} grade
+						<br />
 					</Text>
-					<Text><b>*Subject:*</b> {props.messageData.subject}<br/></Text>
-					<Text>No. on roll: {props.messageData.totalStrength}<br/></Text>
-					<Text>No. present: {props.messageData.numberOfPresent}<br/></Text>
-					<Text>No. absent: {props.messageData.numberOfAbsent}<br/></Text>
-					<Text><b>*Topic covered*:</b> {props.messageData.topicCovered}<br/></Text>
-					<Text><b>*Home assignment*:</b> {props.messageData.assignment}<br/></Text>
+					<Text>
+						<b>*Subject:*</b> {props.messageData.subject}
+						<br />
+					</Text>
+					<Text>
+						No. on roll: {props.messageData.totalStrength}
+						<br />
+					</Text>
+					<Text>
+						No. present: {props.messageData.numberOfPresent}
+						<br />
+					</Text>
+					<Text>
+						No. absent: {props.messageData.numberOfAbsent}
+						<br />
+					</Text>
+					<Text>
+						<b>*Topic covered*:</b> {props.messageData.topicCovered}
+						<br />
+					</Text>
+					<Text>
+						<b>*Home assignment*:</b> {props.messageData.assignment}
+						<br />
+					</Text>
 					<Text>
 						Began at:
 						{format(
 							parse(props.messageData.startTime, 'HH:mm', new Date()),
 							'h:mm aaaa'
 						)}
-						<br/>
+						<br />
 					</Text>
 					<Text>
 						Ended at:
@@ -50,13 +111,16 @@ const Message = (props) => {
 							parse(props.messageData.endTime, 'HH:mm', new Date()),
 							'h:mm aaaa'
 						)}
-						<br/>
+						<br />
 					</Text>
-					<Text><b>*Homework report*:</b> {props.messageData.assignmentReport}<br/></Text>
+					<Text>
+						<b>*Homework report*:</b> {props.messageData.assignmentReport}
+						<br />
+					</Text>
 					<Text>
 						<b>*Remarks*:</b>
 						{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
-						<br/>
+						<br />
 					</Text>
 				</Box>
 			</div>
