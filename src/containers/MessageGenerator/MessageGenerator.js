@@ -16,6 +16,7 @@ const MessageGenerator = () => {
 		totalStrength: 0,
 		numberOfPresent: 0,
 		numberOfAbsent: 0,
+		absentees: [],
 		topicCovered: '',
 		assignment: '',
 		assignmentReport: '',
@@ -59,19 +60,19 @@ const MessageGenerator = () => {
 				required: true,
 			},
 			topicCovered: {
-				type: 'text-area',
+				type: 'input',
 				required: true,
 			},
 			assignment: {
-				type: 'text-area',
+				type: 'input',
 				required: true,
 			},
 			assignmentReport: {
-				type: 'text-area',
+				type: 'input',
 				required: true,
 			},
 			remarks: {
-				type: 'text-area',
+				type: 'input',
 			},
 		},
 	});
