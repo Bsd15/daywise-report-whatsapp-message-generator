@@ -89,6 +89,9 @@ const Message = (props) => {
 						No. absent: {props.messageData.numberOfAbsent}
 						<br />
 					</Text>
+					{props.messageData.numberOfAbsent > 0 && (
+						<Text>Absentees: {props.messageData.absentees}</Text>
+					)}
 					<Text>
 						<b>*Topic covered*:</b> {props.messageData.topicCovered}
 						<br />
@@ -139,15 +142,16 @@ Message.propTypes = {
 		date: PropTypes.string.isRequired,
 		startTime: PropTypes.string.isRequired,
 		endTime: PropTypes.string.isRequired,
-		subject: PropTypes.string,
+		subject: PropTypes.string.isRequired,
 		class: PropTypes.any.isRequired,
 		totalStrength: PropTypes.any.isRequired,
 		numberOfPresent: PropTypes.any.isRequired,
 		numberOfAbsent: PropTypes.any.isRequired,
+		absentees: PropTypes.string,
 		topicCovered: PropTypes.string.isRequired,
 		assignment: PropTypes.string.isRequired,
 		assignmentReport: PropTypes.string.isRequired,
-		remarks: PropTypes.string.isRequired,
+		remarks: PropTypes.string,
 	}),
 	onCopy: PropTypes.func,
 };
