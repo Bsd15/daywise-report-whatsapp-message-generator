@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import format from 'date-fns/format';
-import parse from 'date-fns/parse';
 import { Button, Box, Text } from 'grommet';
 
 const Message = (props) => {
