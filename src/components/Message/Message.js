@@ -82,49 +82,16 @@ const Message = (props) => {
 						<br />
 					</Text>
 					<Text>
-						No. present: {props.messageData.numberOfPresent}
+						No. present: {props.messageData.numberPresent}
 						<br />
 					</Text>
 					<Text>
-						No. absent: {props.messageData.numberOfAbsent}
+						No. absent: {props.messageData.numberAbsent}
 						<br />
 					</Text>
-					{props.messageData.numberOfAbsent > 0 && (
+					{props.messageData.numberAbsent > 0 && (
 						<Text>Absentees: {props.messageData.absentees}</Text>
 					)}
-					<Text>
-						<b>*Topic covered*:</b> {props.messageData.topicCovered}
-						<br />
-					</Text>
-					<Text>
-						<b>*Home assignment*:</b> {props.messageData.assignment}
-						<br />
-					</Text>
-					<Text>
-						Began at:
-						{format(
-							parse(props.messageData.startTime, 'HH:mm', new Date()),
-							'h:mm aaaa'
-						)}
-						<br />
-					</Text>
-					<Text>
-						Ended at:
-						{format(
-							parse(props.messageData.endTime, 'HH:mm', new Date()),
-							'h:mm aaaa'
-						)}
-						<br />
-					</Text>
-					<Text>
-						<b>*Homework report*:</b> {props.messageData.assignmentReport}
-						<br />
-					</Text>
-					<Text>
-						<b>*Remarks*:</b>
-						{props.messageData.remarks ? props.messageData.remarks : 'NIL'}
-						<br />
-					</Text>
 				</Box>
 			</div>
 			<Box>
@@ -140,18 +107,12 @@ const Message = (props) => {
 Message.propTypes = {
 	messageData: PropTypes.shape({
 		date: PropTypes.string.isRequired,
-		startTime: PropTypes.string.isRequired,
-		endTime: PropTypes.string.isRequired,
 		subject: PropTypes.string.isRequired,
 		class: PropTypes.any.isRequired,
 		totalStrength: PropTypes.any.isRequired,
-		numberOfPresent: PropTypes.any.isRequired,
-		numberOfAbsent: PropTypes.any.isRequired,
-		absentees: PropTypes.string,
-		topicCovered: PropTypes.string.isRequired,
-		assignment: PropTypes.string.isRequired,
-		assignmentReport: PropTypes.string.isRequired,
-		remarks: PropTypes.string,
+		numberPresent: PropTypes.any.isRequired,
+		numberAbsent: PropTypes.any.isRequired,
+		absentees: PropTypes.string
 	}),
 	onCopy: PropTypes.func,
 };
