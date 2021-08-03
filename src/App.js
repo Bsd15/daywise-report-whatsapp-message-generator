@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Grommet, Main, Heading } from 'grommet';
 import MessageGenerator from './containers/MessageGenerator/MessageGenerator';
+import { TRAlert } from 'tr-alerts';
 function App() {
 	const theme = {
 		global: {
@@ -20,6 +21,7 @@ function App() {
 						Daywise Report Message Generator
 					</Heading>
 					<MessageGenerator />
+					<TRAlert />
 				</Main>
 			</Grommet>
 		</BrowserRouter>

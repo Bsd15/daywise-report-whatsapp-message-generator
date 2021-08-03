@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { Box } from 'grommet';
+import { useAlert } from 'tr-alerts';
 import format from 'date-fns/format';
 import Message from '../../components/Message/Message';
 import MessageForm from '../../components/MessageGeneratorForm/MessageGeneratorForm';
@@ -14,7 +15,7 @@ const MessageGenerator = () => {
 		totalStrength: 0,
 		numberOfPresent: 0,
 		numberOfAbsent: 0,
-		absentees: ''
+		absentees: '',
 	};
 	const [messageData, setMessageData] = useState({
 		values: {
@@ -47,12 +48,12 @@ const MessageGenerator = () => {
 			},
 			absentees: {
 				type: 'input',
-			}
+			},
 		},
 	});
 	const [isMessageDataValid, setIsMessageDataValid] = useState(false);
-	const [isTextCopied, setIsTextCopied] = useState(false);
 	const history = useHistory();
+	const showAlert = useAlert();
 
 	const generateMessage = (data) => {
 		setMessageData({
@@ -64,16 +65,15 @@ const MessageGenerator = () => {
 	};
 
 	const isTextCopiedHandler = () => {
-		setIsTextCopied(!isTextCopied);
 		setMessageData({
 			...messageData,
 			values: { ...defaultMessageValues },
 		});
+		showAlert("Copied", "The message is copied to the clipboard.","success",6000);
 	};
 
 	return (
 		<Box alignSelf="center" background="light-1" pad="small" width="large">
-			{isTextCopied && <p>Text Copied Successfully</p>}
 			<Switch>
 				{isMessageDataValid ? (
 					<Route path="/message">
