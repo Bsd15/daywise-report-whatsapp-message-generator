@@ -9,18 +9,12 @@ import MessageForm from '../../components/MessageGeneratorForm/MessageGeneratorF
 const MessageGenerator = () => {
 	const defaultMessageValues = {
 		date: format(new Date(), 'yyyy-MM-dd'),
-		startTime: '',
-		endTime: '',
 		subject: 'Social',
 		class: 1,
 		totalStrength: 0,
 		numberOfPresent: 0,
 		numberOfAbsent: 0,
-		absentees: '',
-		topicCovered: '',
-		assignment: '',
-		assignmentReport: '',
-		remarks: '',
+		absentees: ''
 	};
 	const [messageData, setMessageData] = useState({
 		values: {
@@ -29,14 +23,6 @@ const MessageGenerator = () => {
 		formData: {
 			date: {
 				type: 'date',
-				required: true,
-			},
-			startTime: {
-				type: 'time',
-				required: true,
-			},
-			endTime: {
-				type: 'time',
 				required: true,
 			},
 			subject: {
@@ -61,22 +47,7 @@ const MessageGenerator = () => {
 			},
 			absentees: {
 				type: 'input',
-			},
-			topicCovered: {
-				type: 'input',
-				required: true,
-			},
-			assignment: {
-				type: 'input',
-				required: true,
-			},
-			assignmentReport: {
-				type: 'input',
-				required: true,
-			},
-			remarks: {
-				type: 'input',
-			},
+			}
 		},
 	});
 	const [isMessageDataValid, setIsMessageDataValid] = useState(false);
