@@ -37,11 +37,11 @@ const MessageGenerator = () => {
 				type: 'number',
 				required: true,
 			},
-			numberOfPresent: {
+			numberPresent: {
 				type: 'number',
 				required: true,
 			},
-			numberOfAbsent: {
+			numberAbsent: {
 				type: 'number',
 				required: true,
 			},
